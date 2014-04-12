@@ -7,7 +7,7 @@ case class Memo[A, B](f: A => B) extends (A => B) {
 abstract class Solver extends App {
   type Input
 
-  val inputFile: String
+  def inputFile: String
 
   def parseInput: Input
 
