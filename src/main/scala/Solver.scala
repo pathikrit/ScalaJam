@@ -13,7 +13,7 @@ abstract class Solver extends App {
 
   def apply(input: Input): Any
 
-  val in = new java.util.Scanner(new java.io.File("data/" + inputFile))
+  val in = new java.util.Scanner(new java.io.File("data", inputFile))
   import in._
 
   for (i <- 1 to nextInt) {
