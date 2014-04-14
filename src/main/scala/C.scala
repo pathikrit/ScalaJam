@@ -1,6 +1,6 @@
 object C extends Solver {
   import in._
-  override val inputFile = "C.in"
+  override def inputFile = "C.in"
 
   override type Input = String
 
