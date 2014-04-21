@@ -1,9 +1,3 @@
-case class Memo[A, B](f: A => B) extends (A => B) {
-  import scala.collection.mutable.{Map => Dict}
-  private val cache = Dict.empty[A, B]
-  def apply(x: A) = cache getOrElseUpdate (x, f(x))
-}
-
 abstract class Solver extends App {
   type Input
 
