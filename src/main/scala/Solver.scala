@@ -15,7 +15,4 @@ abstract class Solver extends App {
   }
 
   in.close()
-
-  def toSeq[A](f: => A, n: Int = nextInt) = IndexedSeq.fill(n)(f)
-  def toList[A](f: => A, n: Int = nextInt) = List.fill(n)(f)
 }
