@@ -5,5 +5,5 @@ case class Memo[I <% K, K, O](f: I => O) extends (I => O) {
 }
 
 object Memo {
-  type F[I, O] = Memo[I, I, O]
+  type ==>[I, O] = Memo[I, I, O]
 }
