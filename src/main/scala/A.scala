@@ -1,13 +1,18 @@
 object A extends Solver {
   import in._
-  override def inputFile = "A.in"
+  override def inputFile = "A-large.in"
 
-  override type Input = String
+  override type Input = IndexedSeq[Int]
 
   override def parseInput = {
-    nextLine
-    nextLine
+    nextInt
+    next map {_.toString.toInt}
   }
 
-  override def apply(input: Input) = input
+  override def apply(input: Input) = {
+    val total = input.zipWithIndex.foldLeft(0) {
+      case (c, (n, i)) => (c max i) + n
+    }
+    total - input.sum
+  }
 }
