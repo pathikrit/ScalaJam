@@ -12,6 +12,11 @@ abstract class Solver extends App {
   val in = new java.util.Scanner(resourceFile(inputFile))
   import in._
 
+  def skipLine[A](f: => A): A = {
+    nextLine
+    f
+  }
+
   for (i <- 1 to nextInt) {
     println(s"Case #$i: ${this(parseInput)}")
   }
