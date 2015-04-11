@@ -11,7 +11,7 @@ abstract class Solver extends App {
   import in._
 
   for (i <- 1 to nextInt) {
-    println(s"Case #$i: ${apply(parseInput)}")
+    println(s"Case #$i: ${this(parseInput)}")
   }
 
   in.close()

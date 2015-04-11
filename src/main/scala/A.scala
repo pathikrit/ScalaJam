@@ -4,7 +4,10 @@ object A extends Solver {
 
   override type Input = String
 
-  override def parseInput = nextLine
+  override def parseInput = {
+    nextLine
+    nextLine
+  }
 
   override def apply(input: Input) = input
 }
