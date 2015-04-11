@@ -16,5 +16,10 @@ abstract class Solver extends App {
     println(s"Case #$i: ${this(parseInput)}")
   }
 
+  def skipLine[A](f: => A): A = {
+    nextLine
+    f
+  }
+
   in.close()
 }
