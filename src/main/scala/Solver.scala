@@ -1,24 +1,17 @@
-abstract class Solver extends App {
+abstract class Solver(inputFile: String) extends App {
   type Input
+  type Output
 
-  def inputFile: String
+  def read: Input
 
-  def parseInput: Input
+  def apply(input: Input): Output
 
-  def apply(input: Input): Any
+  def format(output: Output): String = output.toString
 
-  def resourceFile(name: String) = new java.io.File(getClass.getResource(name).toURI)
+  val in = new java.util.Scanner(getClass.getResourceAsStream(inputFile))
 
-  val in = new java.util.Scanner(resourceFile(inputFile))
-  import in._
-
-  def skipLine[A](f: => A): A = {
-    nextLine
-    f
-  }
-
-  for (i <- 1 to nextInt) {
-    println(s"Case #$i: ${this(parseInput)}")
+  for (i <- 1 to in.nextInt) {
+    println(s"Case #$i: ${format(apply(read))}")
   }
 
   in.close()

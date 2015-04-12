@@ -1,10 +1,13 @@
-object A extends Solver {
-  import in._
-  override def inputFile = "A.in"
-
+object A extends Solver(inputFile = "A.in") {
   override type Input = String
+  override type Output = Input
 
-  override def parseInput = skipLine(nextLine)
+  override def read = {
+    import in._
+    next
+  }
 
-  override def apply(input: Input) = input
+  override def apply(input: Input) = {
+    input
+  }
 }
