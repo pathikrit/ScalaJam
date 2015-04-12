@@ -51,4 +51,4 @@ project/plugins/project/
 .worksheet
 
 # CodeJam #
-Output.txt
+*.out

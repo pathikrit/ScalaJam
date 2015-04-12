@@ -1,18 +1,21 @@
 abstract class Solver(inputFile: String) extends App {
   type Input
   type Output
-
   def read: Input
-
   def apply(input: Input): Output
-
   def format(output: Output): String = output.toString
 
-  val in = new java.util.Scanner(getClass.getResourceAsStream(inputFile))
-
-  for (i <- 1 to in.nextInt) {
-    println(s"Case #$i: ${format(apply(read))}")
+  /*********************************************************************/
+  import java.io.{File, PrintWriter}
+  import java.util.Scanner
+  val scanner = new Scanner(getClass.getResourceAsStream(inputFile))
+  val out = new PrintWriter(new File(inputFile.replace(".in", ".out")))
+  println(s"Solving: $inputFile")
+  for (i <- 1 to scanner.nextInt) {
+    val output = s"Case #$i: ${format(apply(read))}"
+    println(output)
+    out.println(output)
   }
-
-  in.close()
+  scanner.close()
+  out.close()
 }

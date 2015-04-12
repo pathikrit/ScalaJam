@@ -3,7 +3,7 @@ object C extends Solver(inputFile = "C.in") {
   override type Output = Input
 
   override def read = {
-    import in._
+    import scanner._
     next
   }
 
