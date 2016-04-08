@@ -6,16 +6,17 @@ abstract class Solver(inputFile: String) extends App {
   def format(output: Output): String = output.toString
 
   /*********************************************************************/
-  import java.io.{File, PrintWriter}
-  import java.util.Scanner
-  val scanner = new Scanner(getClass.getResourceAsStream(inputFile))
-  val out = new PrintWriter(new File(inputFile.replace(".in", ".out")))
+  import better.files._
+
+  val in = File(inputFile).newScanner
+  val out = File(inputFile.replace(".in", ".out")).newOutputStream.printer()
+
   println(s"Solving: $inputFile")
-  for (i <- 1 to scanner.nextInt) {
+  for (i <- 1 to in.next[Int]) {
     val output = s"Case #$i: ${format(apply(read))}"
     println(output)
     out.println(output)
   }
-  scanner.close()
+  in.close()
   out.close()
 }
