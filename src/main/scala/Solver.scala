@@ -8,7 +8,7 @@ abstract class Solver(inputFile: String) extends App {
   /*********************************************************************/
   import better.files._
 
-  val in = File(inputFile).newScanner
+  val in = Scanner(getClass.getResourceAsStream(inputFile))(Scanner.Config.default)
   val out = File(inputFile.replace(".in", ".out")).newOutputStream.printer()
 
   println(s"Solving: $inputFile")
