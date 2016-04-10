@@ -1,19 +1,14 @@
 abstract class Solver(inputFile: String) extends App {
-  type Input
-  type Output
-  def read: Input
-  def apply(input: Input): Output
-  def format(output: Output): String = output.toString
-
+  type Answer
+  def solve(): Answer
+  def format(output: Answer): String = output.toString
   /*********************************************************************/
   import better.files._
-
-  val in = File(inputFile).newScanner
+  val in = Scanner(getClass.getResourceAsStream(inputFile))(Scanner.Config.default)
   val out = File(inputFile.replace(".in", ".out")).newOutputStream.printer()
-
   println(s"Solving: $inputFile")
   for (i <- 1 to in.next[Int]) {
-    val output = s"Case #$i: ${format(apply(read))}"
+    val output = s"Case #$i: ${format(solve())}"
     println(output)
     out.println(output)
   }

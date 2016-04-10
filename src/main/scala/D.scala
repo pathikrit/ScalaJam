@@ -1,12 +1,7 @@
 object D extends Solver(inputFile = "D.in") {
-  override type Input = String
-  override type Output = Input
+  override type Answer = String
 
-  override def read = {
+  override def solve() = {
     in.next()
-  }
-
-  override def apply(input: Input) = {
-    input
   }
 }
