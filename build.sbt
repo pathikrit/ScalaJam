@@ -1,6 +1,6 @@
 name := "ScalaJam"
 description := "Scala template for Google Code Jam"
-scalaVersion := "2.11.7"
+scalaVersion := "2.11.8"
 libraryDependencies ++= Seq(
   "com.softwaremill.scalamacrodebug"  %% "macros"       %   "0.4",
 //"org.scalacheck"                    %% "scalacheck"   %   "1.12.4"  % Test,
