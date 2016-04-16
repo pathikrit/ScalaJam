@@ -1,7 +1,15 @@
-object A extends Solver(inputFile = "A.in") {
+object A extends Solver(inputFile = "A-large.in") {
   override type Answer = String
 
   override def solve() = {
-    in.next()
+    var ans = ""
+    in.next() foreach {c =>
+      if (ans.isEmpty || c < ans.head) {
+        ans += c
+      } else {
+        ans = c + ans
+      }
+    }
+    ans
   }
 }
